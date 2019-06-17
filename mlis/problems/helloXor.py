@@ -20,7 +20,7 @@ class SolutionModel(nn.Module):
 
     def forward(self, x):
         x = self.linear1(x)
-        x = torch.sigmoid(x)
+        x = torch.relu(x)
         x = self.linear2(x)
         x = torch.sigmoid(x)
         return x
@@ -36,9 +36,9 @@ class SolutionModel(nn.Module):
 class Solution():
     def __init__(self):
         # Control speed of learning
-        self.learning_rate = 0.00001
+        self.learning_rate = 0.625
         # Control number of hidden neurons
-        self.hidden_size = 1
+        self.hidden_size = 16
 
         # Grid search settings, see grid_search_tutorial
         self.learning_rate_grid = [0.001, 0.01, 0.1]
